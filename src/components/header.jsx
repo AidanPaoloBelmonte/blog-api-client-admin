@@ -9,16 +9,20 @@ export default function Header() {
         <div className="navbar">
           <ul className="navlinks">
             <li>
-              <Link top="/">Blog</Link>
+              <Link to="/" viewTransition>
+                Blog
+              </Link>
             </li>
             <li>
               <span className="separator"></span>
             </li>
             <li>
-              <Link top="/">Log In</Link>
+              <Link to="/login" viewTransition>
+                Log In
+              </Link>
             </li>
             <li>
-              <Link top="/">Sign Up</Link>
+              <Link to="/">Sign Up</Link>
             </li>
           </ul>
         </div>

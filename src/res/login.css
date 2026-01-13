@@ -1,0 +1,61 @@
+form {
+    min-width: 400px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    padding: 100px 24px 100px 0;
+    margin-right: 2px;
+
+    background-color: var(--base-background);
+}
+
+label {
+    align-self: flex-start;
+
+    font-size: 1.1rem;
+}
+
+input {
+    padding: 0.3rem;
+    border: 1px solid var(--complimentary-light);
+    border-radius: var(--base-border-radius);
+
+    font-size: 1rem;
+
+    background-color: #fbf9fc;
+}
+
+input:focus {
+    outline: 3px solid var(--accent-color);
+}
+
+button {
+    align-self: flex-end;
+    margin-top: 25px;
+}
+
+.borderWrapper {
+    margin-bottom: 75px;
+
+    background: linear-gradient(
+        to top,
+        transparent,
+        var(--accent-color),
+        transparent
+    );
+}
+
+.loginSection {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.formEntry {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+}

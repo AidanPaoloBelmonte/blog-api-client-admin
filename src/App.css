@@ -1,7 +1,18 @@
 #root {
+    display: flex;
+    flex-direction: column;
+
     text-align: center;
 
-    background-color: #fcfcfc;
+    background: linear-gradient(
+        to bottom,
+        var(--complimentary-color),
+        var(--base-background) 30%
+    );
+}
+
+.flexFill {
+    flex: 1 auto;
 }
 
 .separator {
@@ -17,8 +28,6 @@
 
     list-style-type: none;
     padding: 0;
-
-    color: #5c575e;
 
     li {
         display: inline;
@@ -36,6 +45,11 @@
         color: inherit;
         text-decoration: underline;
     }
+
+    li a:focus {
+        outline: none;
+        border-bottom: 3px solid var(--accent-color);
+    }
 }
 
 .baseSection {
@@ -44,7 +58,7 @@
 }
 
 .headerSection {
-    background: linear-gradient(to bottom, #faf9fc, #faf9fc, #faf9fc, #fcfcfc);
+    background-color: var(--complimentary-color);
 }
 
 .headerContents {
