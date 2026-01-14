@@ -23,6 +23,36 @@
     margin: 0 1rem;
 }
 
+.formError {
+    min-width: 0px;
+    flex: 1 auto;
+
+    margin: 0;
+    padding: 0px;
+
+    color: var(--negative-color);
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.formError.inline {
+    margin-left: 0.2rem;
+    width: 380px;
+}
+
+.formFooter {
+    align-self: flex-end;
+
+    width: 380px;
+    margin-top: 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
 .navlinks {
     height: 100%;
 

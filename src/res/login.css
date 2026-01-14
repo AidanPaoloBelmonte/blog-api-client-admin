@@ -32,8 +32,7 @@ input:focus {
 }
 
 button {
-    align-self: flex-end;
-    margin-top: 25px;
+    margin-left: auto;
 }
 
 .borderWrapper {
@@ -58,4 +57,15 @@ button {
     flex-direction: column;
     align-items: stretch;
     gap: 4px;
+}
+
+.formEntry.invalid {
+    label {
+        color: var(--negative-color);
+    }
+
+    input {
+        border: 1px solid var(--negative-color);
+        background-color: var(--negative-light);
+    }
 }

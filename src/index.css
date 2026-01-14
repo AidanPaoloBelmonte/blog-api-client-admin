@@ -21,6 +21,8 @@
     --accent-color: #8858ad;
     --complimentary-color: #faf9fc;
     --complimentary-light: #7b19c1;
+    --negative-color: #f9626c;
+    --negative-light: #f7f2f2;
 
     --base-border-radius: 4px;
 }
@@ -52,7 +54,7 @@ button {
     border: 1px solid transparent;
     padding: 0.4rem 0.8rem;
     color: var(--complimentary-color);
-    font-size: 1em;
+    font-size: 1.1rem;
     font-weight: 500;
     font-family: inherit;
     background-color: var(--accent-color);
@@ -69,4 +71,9 @@ button:focus-visible {
 button:focus,
 button:focus-visible {
     outline: 3px solid var(--accent-color);
+}
+
+button:disabled {
+    background-color: var(--complimentary-light);
+    opacity: 20%;
 }
