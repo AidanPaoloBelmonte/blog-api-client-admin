@@ -1,6 +1,6 @@
 import { useState } from "react";
+import { useOutletContext } from "react-router";
 import { useForm } from "react-hook-form";
-import { useCookies } from "react-cookie";
 import axios from "axios";
 
 import "../res/login.css";
@@ -12,7 +12,7 @@ export default function Login() {
     formState: { isDirty, isValid, errors },
   } = useForm({ mode: "all" });
 
-  const [cookies, setCookie] = useCookies(["token"]);
+  const { setCookie, setAuth } = useOutletContext();
   const [error, setError] = useState("");
 
   async function onSubmit(data) {
@@ -31,6 +31,7 @@ export default function Login() {
     }
 
     setError(response?.data?.error);
+    setAuth(!response?.data?.error);
   }
 
   function handleUsernameErrorDisplay() {

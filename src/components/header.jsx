@@ -1,6 +1,30 @@
 import { Link } from "react-router";
 
-export default function Header() {
+export default function Header({ isAuth }) {
+  const headerAccountUnauth = (
+    <>
+      <li>
+        <span className="separator"></span>
+      </li>
+      <li>
+        <Link to="/login" viewTransition>
+          Log In
+        </Link>
+      </li>
+      <li>
+        <Link to="/">Sign Up</Link>
+      </li>
+    </>
+  );
+
+  function handleHeaderAccountOptions() {
+    if (!isAuth) {
+      return headerAccountUnauth;
+    }
+
+    return null;
+  }
+
   return (
     <section className="baseSection headerSection">
       <div className="headerContents">
@@ -13,17 +37,7 @@ export default function Header() {
                 Blog
               </Link>
             </li>
-            <li>
-              <span className="separator"></span>
-            </li>
-            <li>
-              <Link to="/login" viewTransition>
-                Log In
-              </Link>
-            </li>
-            <li>
-              <Link to="/">Sign Up</Link>
-            </li>
+            {handleHeaderAccountOptions()}
           </ul>
         </div>
       </div>
