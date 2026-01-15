@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useCookies } from "react-cookie";
 import axios from "axios";
 
 import "../res/login.css";
@@ -10,12 +11,26 @@ export default function Login() {
     handleSubmit,
     formState: { isDirty, isValid, errors },
   } = useForm({ mode: "all" });
+
+  const [cookies, setCookie] = useCookies(["token"]);
   const [error, setError] = useState("");
 
   async function onSubmit(data) {
-    const response = await axios.post("http://localhost:3000/login", data);
+    const response = await axios.post("http://localhost:3000/login", data, {
+      withCredentials: true,
+    });
 
-    setError(response.data?.error);
+    if (response?.data?.token) {
+      const payload = response.data.token;
+
+      setCookie("payload", payload, {
+        maxAge: 604800, // 7 days
+        secure: true,
+        sameSite: true,
+      });
+    }
+
+    setError(response?.data?.error);
   }
 
   function handleUsernameErrorDisplay() {
