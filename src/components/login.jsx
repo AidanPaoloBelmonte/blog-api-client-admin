@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { useOutletContext } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
 import "../res/accountForm.css";
 
 export default function Login() {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -28,6 +31,8 @@ export default function Login() {
         secure: true,
         sameSite: true,
       });
+
+      navigate("/blogs");
     }
 
     setError(response?.data?.error);
@@ -45,13 +50,14 @@ export default function Login() {
   }
 
   function handleServerErrorDisplay() {
-    if (error) return <p className="formError">{error}</p>;
+    if (error) return <p className="formError block">{error}</p>;
   }
 
   return (
     <section className="baseSection loginSection flexFill">
       <div className="borderWrapper">
         <form className="login" onSubmit={handleSubmit(onSubmit)}>
+          {handleServerErrorDisplay()}
           <div className={`formEntry ${errors?.username ? "invalid" : ""}`}>
             <label htmlFor="username">Username</label>
             <input
@@ -91,7 +97,6 @@ export default function Login() {
             {handlePasswordErrorDisplay()}
           </div>
           <div className="formFooter">
-            {handleServerErrorDisplay()}
             <button
               type="submit"
               className="submit"

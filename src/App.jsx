@@ -6,6 +6,7 @@ import Header from "./components/header";
 import Home from "./components/home";
 import Login from "./components/login";
 import Signup from "./components/signup";
+import Blogs from "./components/blogs";
 
 import "./App.css";
 
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup></Signup>,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>,
       },
     ],
   },

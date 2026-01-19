@@ -41,6 +41,16 @@
     width: 380px;
 }
 
+.formError.block {
+    border: 1px solid var(--negative-color);
+    border-radius: var(--base-border-radius);
+
+    padding: 16px 0px;
+
+    text-align: center;
+    background-color: var(--negative-light);
+}
+
 .formFooter {
     align-self: flex-end;
 

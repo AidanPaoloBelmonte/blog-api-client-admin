@@ -44,13 +44,14 @@ export default function Signup() {
   }
 
   function handleServerErrorDisplay() {
-    if (error) return <p className="formError">{error}</p>;
+    if (error) return <p className="formError block">{error}</p>;
   }
 
   return (
     <section className="baseSection signUpSection flexFill">
       <div className="borderWrapper">
         <form className="login" onSubmit={handleSubmit(onSubmit)}>
+          {handleServerErrorDisplay()}
           <div className={`formEntry ${errors?.username ? "invalid" : ""}`}>
             <label htmlFor="username">Username</label>
             <input
@@ -107,7 +108,6 @@ export default function Signup() {
             {handlePasswordErrorDisplay()}
           </div>
           <div className="formFooter">
-            {handleServerErrorDisplay()}
             <button
               type="submit"
               className="submit"

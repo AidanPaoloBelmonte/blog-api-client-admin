@@ -1,0 +1,36 @@
+.blogSection {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    margin-top: 1rem;
+
+    h2 {
+        margin: 0px;
+        font-size: 2rem;
+    }
+}
+
+.blogList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.blogEntry {
+    padding: 8px;
+    border: 2px solid var(--accent-color);
+    border-radius: var(--base-border-radius);
+
+    p {
+        margin: 0px;
+
+        color: var(--base-color);
+        text-align: left;
+    }
+}
+
+.blogTitle {
+    font-size: 1.3rem;
+    font-weight: bold;
+}

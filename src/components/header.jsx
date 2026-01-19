@@ -4,9 +4,6 @@ export default function Header({ isAuth }) {
   const headerAccountUnauth = (
     <>
       <li>
-        <span className="separator"></span>
-      </li>
-      <li>
         <Link to="/login" viewTransition>
           Log In
         </Link>
@@ -30,14 +27,19 @@ export default function Header({ isAuth }) {
   return (
     <section className="baseSection headerSection">
       <div className="headerContents">
-        <h1>The Golb Blog</h1>
+        <Link to="/">
+          <h1>The Golb Blog</h1>
+        </Link>
 
         <div className="navbar">
           <ul className="navlinks">
             <li>
-              <Link to="/" viewTransition>
+              <Link to="/blogs" viewTransition>
                 Blog
               </Link>
+            </li>
+            <li>
+              <span className="separator"></span>
             </li>
             {handleHeaderAccountOptions()}
           </ul>
