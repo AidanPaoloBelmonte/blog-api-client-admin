@@ -1,0 +1,13 @@
+.blogPostSection {
+    text-align: left;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 0px;
+}
+
+.date {
+    margin-top: 0px;
+    opacity: 70%;
+}

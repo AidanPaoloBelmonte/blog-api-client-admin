@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 
+import "../res/blog.css";
+
 export default function BlogPost() {
   const { id } = useParams();
   const [blog, setBlog] = useState({});
@@ -37,7 +39,7 @@ export default function BlogPost() {
     return (
       <>
         <h2>{blog.title}</h2>
-        <p>{new Date(blog.creationDate).toDateString()}</p>
+        <p className="date">{new Date(blog.creationDate).toDateString()}</p>
         <p>{blog.article.content}</p>
       </>
     );
