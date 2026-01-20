@@ -20,7 +20,7 @@ export default function Blogs() {
 
   function generateBlogEntry({ id, title, creationDate }) {
     return (
-      <Link key={id} className="blogEntry" to={`/blogs/${id}`}>
+      <Link key={id} className="blogEntry" to={`/blogs/${id}`} viewTransition>
         <p className="blogTitle">{title}</p>
         <p className="publishDate">{new Date(creationDate).toDateString()}</p>
       </Link>
