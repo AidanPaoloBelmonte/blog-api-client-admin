@@ -21,7 +21,7 @@ export default function BlogPost() {
   });
 
   const { id } = useParams();
-  const { user } = useOutletContext;
+  const { user } = useOutletContext();
   const [isWritingComment, setWritingComment] = useState(false);
   const [blog, setBlog] = useState({});
 
@@ -96,11 +96,12 @@ export default function BlogPost() {
       const selection = window.getSelection();
       selection.removeAllRanges();
       selection.addRange(range);
-
-      return;
     }
 
-    setValue("comment", c);
+    setValue("comment", c, {
+      shouldValidate: true,
+      shouldDirty: true,
+    });
     trigger("comment");
   };
 
