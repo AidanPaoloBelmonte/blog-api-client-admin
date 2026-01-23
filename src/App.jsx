@@ -12,12 +12,17 @@ import BlogPost from "./components/blogPost";
 import "./App.css";
 
 function LayoutContext() {
-  const [cookies, setCookie] = useCookies(["token"]);
+  const [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const [user, setUser] = useState(cookies?.user);
 
   return (
     <>
-      <Header key={user?.id ?? 0} user={user} />
+      <Header
+        key={user?.id ?? "none"}
+        removeCookie={removeCookie}
+        user={user}
+        setUser={setUser}
+      />
       <Outlet context={{ cookies, setCookie, user, setUser }} />
     </>
   );

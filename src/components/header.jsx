@@ -1,6 +1,25 @@
 import { Link } from "react-router";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-export default function Header({ user }) {
+export default function Header({ removeCookie, user, setUser }) {
+  const navigate = useNavigate();
+
+  async function onLogout() {
+    const response = await axios.post("http://localhost:3000/logout", null, {
+      withCredentials: true,
+    });
+
+    if (response?.status == 200) {
+      removeCookie("payload");
+      removeCookie("user");
+
+      setUser(null);
+
+      navigate("/", { viewTransition: true });
+    }
+  }
+
   function handleHeaderAccountOptions() {
     if (!user) {
       return (
@@ -22,7 +41,11 @@ export default function Header({ user }) {
     return (
       <>
         <li>
-          <a>Logout</a>
+          <a>
+            <button className="asLink" type="button" onClick={onLogout}>
+              Log Out
+            </button>
+          </a>
         </li>
         <li>
           <Link className="special" to={`/users/${user.id}`}>
@@ -40,7 +63,7 @@ export default function Header({ user }) {
           <h1>The Golb Blog</h1>
         </Link>
 
-        <div className="navbar">
+        <div key={user?.id ?? "anonymous"} className="navbar">
           <ul className="navlinks">
             <li>
               <Link to="/blogs" viewTransition>

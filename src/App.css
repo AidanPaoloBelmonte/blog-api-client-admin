@@ -96,6 +96,20 @@
         font-size: 1.1rem;
         text-decoration: none;
     }
+    .asLink,
+    .asLink:hover,
+    .asLink:focus {
+        color: inherit;
+        font-weight: inherit;
+
+        padding: 0px;
+        border: 0px;
+        border-bottom: 3px solid transparent;
+        border-radius: 0px;
+        margin: 0px;
+
+        background-color: transparent;
+    }
 
     li a.special {
         padding: 8px 12px;
@@ -110,6 +124,10 @@
     li a:hover {
         color: inherit;
         text-decoration: underline;
+
+        .asLink {
+            text-decoration: underline;
+        }
     }
 
     li a.special:hover {
