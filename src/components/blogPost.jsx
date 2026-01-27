@@ -28,8 +28,6 @@ export default function BlogPost() {
   const [comments, setComments] = useState([]);
 
   const fetchComments = useCallback(async () => {
-    console.log("Fetching comments!");
-
     try {
       const response = await axios.get(
         `http://localhost:3000/blogs/${id}/comments`,
@@ -228,7 +226,11 @@ export default function BlogPost() {
     const commentsArray = comments.map((comment) => {
       const authorComponent = comment?.author ? (
         <>
-          <Link to={`/users/${comment.author.id}`} className="author">
+          <Link
+            to={`/user/${comment.author.id}`}
+            className="author"
+            viewTransition
+          >
             {comment.author.username}
           </Link>
         </>

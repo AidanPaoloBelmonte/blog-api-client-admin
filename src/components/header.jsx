@@ -48,7 +48,7 @@ export default function Header({ removeCookie, user, setUser }) {
           </a>
         </li>
         <li>
-          <Link className="special" to={`/users/${user.id}`}>
+          <Link className="special" to={`/user/${user.id}`} viewTransition>
             {user.username}
           </Link>
         </li>
@@ -59,7 +59,7 @@ export default function Header({ removeCookie, user, setUser }) {
   return (
     <section className="baseSection headerSection">
       <div className="headerContents">
-        <Link to="/">
+        <Link to="/" viewTransition>
           <h1>The Golb Blog</h1>
         </Link>
 

@@ -6,6 +6,7 @@ import Header from "./components/header";
 import Home from "./components/home";
 import Login from "./components/login";
 import Signup from "./components/signup";
+import User from "./components/user";
 import Blogs from "./components/blogs";
 import BlogPost from "./components/blogPost";
 
@@ -23,7 +24,7 @@ function LayoutContext() {
         user={user}
         setUser={setUser}
       />
-      <Outlet context={{ cookies, setCookie, user, setUser }} />
+      <Outlet context={{ cookies, setCookie, removeCookie, user, setUser }} />
     </>
   );
 }
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <Signup></Signup>,
+      },
+      {
+        path: "/user/:id",
+        element: <User></User>,
       },
       {
         path: "/blogs",

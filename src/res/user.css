@@ -1,0 +1,26 @@
+.userContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding: 0px 32px;
+    border: 3px ridge var(--accent-color);
+    border-radius: var(--base-border-radius);
+    margin-top: 16px;
+
+    text-align: left;
+
+    div {
+        display: block;
+    }
+
+    .options {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .email {
+        margin-bottom: 12px;
+    }
+}

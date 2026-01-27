@@ -36,7 +36,7 @@ export default function Login() {
 
       setCookie("user", user, opts);
 
-      navigate("/blogs");
+      navigate("/blogs", { viewTransition: true });
     }
 
     setError(response?.data?.error);

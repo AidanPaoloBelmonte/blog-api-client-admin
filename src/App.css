@@ -11,6 +11,18 @@
     );
 }
 
+.flex {
+    display: flex;
+}
+
+.flex.row {
+    flex-direction: row;
+}
+
+.flex.center {
+    justify-content: center;
+}
+
 .flexFill {
     flex: 1 auto;
 }
@@ -179,4 +191,55 @@
 .field:focus,
 .field:active {
     outline: none;
+}
+
+.Modal {
+    position: absolute;
+}
+
+.Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: color-mix(
+        in srgb,
+        var(--negative-white) 70%,
+        transparent
+    );
+    backdrop-filter: blur(10px);
+}
+
+.modalContainer {
+    padding: 24px;
+    border-radius: var(--base-border-radius);
+
+    background-color: var(--base-background);
+
+    text-align: center;
+
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+    h2 {
+        margin-top: 0px;
+        margin-bottom: 8px;
+    }
+
+    b {
+        color: var(--negative-color);
+    }
+
+    .noMargin {
+        margin: 0px;
+    }
+
+    .actions {
+        gap: 8px;
+    }
 }
