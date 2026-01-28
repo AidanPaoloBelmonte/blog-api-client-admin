@@ -133,7 +133,7 @@ export default function BlogPost() {
     }
 
     if (blog?.error) {
-      return <p>{blog.error}</p>;
+      return <p>{"There was an error retrieving this blog."}</p>;
     }
 
     return (
