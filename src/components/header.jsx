@@ -16,30 +16,25 @@ export default function Header({ removeCookie, user, setUser }) {
 
       setUser(null);
 
-      navigate("/", { viewTransition: true });
+      navigate("/login");
     }
   }
 
   function handleHeaderAccountOptions() {
     if (!user) {
-      return (
-        <>
-          <li>
-            <Link to="/login" viewTransition>
-              Log In
-            </Link>
-          </li>
-          <li>
-            <Link className="special" to="/signup" viewTransition>
-              Sign Up
-            </Link>
-          </li>
-        </>
-      );
+      return <></>;
     }
 
     return (
       <>
+        <li>
+          <Link to="/blogs" viewTransition>
+            Blog
+          </Link>
+        </li>
+        <li>
+          <span className="separator"></span>
+        </li>
         <li>
           <a>
             <button className="asLink" type="button" onClick={onLogout}>
@@ -56,25 +51,20 @@ export default function Header({ removeCookie, user, setUser }) {
     );
   }
 
+  let homeLink = "/";
+  if (!user) {
+    homeLink += "login";
+  }
+
   return (
     <section className="baseSection headerSection">
       <div className="headerContents">
-        <Link to="/" viewTransition>
-          <h1>The Golb Blog</h1>
+        <Link to={homeLink} viewTransition>
+          <h1>The Golb Blog Admin</h1>
         </Link>
 
         <div key={user?.id ?? "anonymous"} className="navbar">
-          <ul className="navlinks">
-            <li>
-              <Link to="/blogs" viewTransition>
-                Blog
-              </Link>
-            </li>
-            <li>
-              <span className="separator"></span>
-            </li>
-            {handleHeaderAccountOptions()}
-          </ul>
+          <ul className="navlinks">{handleHeaderAccountOptions()}</ul>
         </div>
       </div>
     </section>

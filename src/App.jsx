@@ -1,5 +1,11 @@
-import { useState } from "react";
-import { RouterProvider, Outlet, createBrowserRouter } from "react-router";
+import { useState, useEffect } from "react";
+import {
+  RouterProvider,
+  Outlet,
+  createBrowserRouter,
+  useNavigate,
+  useLocation,
+} from "react-router";
 import { useCookies } from "react-cookie";
 
 import Header from "./components/header";
@@ -13,8 +19,21 @@ import BlogPost from "./components/blogPost";
 import "./App.css";
 
 function LayoutContext() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [cookies, setCookie, removeCookie] = useCookies(["token"]);
   const [user, setUser] = useState(cookies?.user);
+
+  useEffect(() => {
+    async function redirect() {
+      if (!user && location.pathname != "/login") {
+        await navigate("/login", { viewTransition: true });
+      }
+    }
+
+    redirect();
+  }, [location.pathname, navigate, user]);
 
   return (
     <>
@@ -40,10 +59,6 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
-      },
-      {
-        path: "/signup",
-        element: <Signup></Signup>,
       },
       {
         path: "/user/:id",
