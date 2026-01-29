@@ -15,8 +15,16 @@ form.postComment {
         font-weight: bold;
     }
 
-    input {
+    label.noWeight {
+        font-weight: inherit;
+    }
+
+    input.hidden {
         display: none;
+    }
+
+    .asInputField {
+        text-align: left;
     }
 
     .formFooter {
@@ -116,4 +124,22 @@ form.postComment {
 a.author:hover,
 a.author.focus {
     text-decoration: underline;
+}
+
+.postComment.post {
+    .field {
+        min-height: 250px;
+    }
+}
+
+.buttons {
+    width: 500px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    div {
+        margin-left: 8px;
+    }
 }

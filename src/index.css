@@ -54,7 +54,8 @@ h1 {
     line-height: 1.1;
 }
 
-button {
+button,
+.asButton {
     border-radius: var(--base-border-radius);
     border: 1px solid transparent;
     padding: 0.4rem 0.8rem;
@@ -69,16 +70,22 @@ button {
 
 button:hover,
 button:focus,
-button:focus-visible {
+button:focus-visible,
+.asButton:hover,
+.asButton:focus,
+.asButton:focus-visible {
     background-color: var(--complimentary-light);
 }
 
 button:focus,
-button:focus-visible {
+button:focus-visible,
+.asButton:focus,
+.asButton:focus-visible {
     outline: 3px solid var(--accent-color);
 }
 
-button:disabled {
+button:disabled,
+.asButton:disabled {
     background-color: var(--complimentary-light);
     opacity: 20%;
 }

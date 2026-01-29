@@ -14,6 +14,7 @@ import Login from "./components/login";
 import User from "./components/user";
 import Blogs from "./components/blogs";
 import BlogPost from "./components/blogPost";
+import NewBlog from "./components/newBlog";
 
 import "./App.css";
 
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: "/user/:id",
         element: <User></User>,
+      },
+      {
+        path: "/new",
+        element: <NewBlog></NewBlog>,
       },
       {
         path: "/blogs",

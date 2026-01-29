@@ -23,6 +23,14 @@
     justify-content: center;
 }
 
+.flex.apart {
+    justify-content: space-between;
+}
+
+.flex.middle {
+    align-items: center;
+}
+
 .flexFill {
     flex: 1 auto;
 }
@@ -168,6 +176,11 @@
     background-color: var(--complimentary-color);
 }
 
+.newBlogSection h2 {
+    text-align: left;
+    margin-bottom: 8px;
+}
+
 .headerContents {
     display: flex;
     align-items: center;
@@ -242,4 +255,10 @@
     .actions {
         gap: 8px;
     }
+}
+
+.asButton:hover,
+.asButton:focus,
+.asButton:focus-visible {
+    color: var(--base-background);
 }

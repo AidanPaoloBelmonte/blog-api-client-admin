@@ -43,7 +43,12 @@ export default function Blogs() {
   return (
     <>
       <section className="baseSection blogSection">
-        <h2>Recent Posts</h2>
+        <div className="flex row apart middle">
+          <h2>Recent Posts</h2>
+          <Link className="asButton" to="/new" viewTransition>
+            New Post
+          </Link>
+        </div>
         {displayBlogs()}
       </section>
     </>

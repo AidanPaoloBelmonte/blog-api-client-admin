@@ -91,7 +91,7 @@ export default function BlogPost() {
       onNewCommentEnd();
       await fetchComments(id);
     } else {
-      console.log("Failed to get new Comments");
+      console.error("Failed to get new Comments");
     }
   }
 
