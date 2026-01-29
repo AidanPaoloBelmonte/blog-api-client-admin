@@ -33,7 +33,6 @@ export default function Login() {
       };
 
       setCookie("payload", payload, opts);
-
       setCookie("user", user, opts);
 
       navigate("/blogs", { viewTransition: true });

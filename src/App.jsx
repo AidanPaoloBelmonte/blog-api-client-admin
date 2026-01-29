@@ -11,7 +11,6 @@ import { useCookies } from "react-cookie";
 import Header from "./components/header";
 import Home from "./components/home";
 import Login from "./components/login";
-import Signup from "./components/signup";
 import User from "./components/user";
 import Blogs from "./components/blogs";
 import BlogPost from "./components/blogPost";
