@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useOutletContext, useParams } from "react-router";
+import { Link, useOutletContext, useParams, useLocation } from "react-router";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
@@ -23,8 +23,11 @@ export default function BlogPost() {
 
   const { id } = useParams();
   const { user } = useOutletContext();
+  const { state } = useLocation();
   const [isWritingComment, setWritingComment] = useState(false);
-  const [blog, setBlog] = useState({});
+  // Use Blog data received from creating a New Blog
+  // if redirected from a successful posting of a blog
+  const [blog, setBlog] = useState(state ? { ...state } : {});
   const [comments, setComments] = useState([]);
 
   const fetchComments = useCallback(async () => {
@@ -37,7 +40,7 @@ export default function BlogPost() {
         setComments(response.data.comments);
       }
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   }, [id]);
 

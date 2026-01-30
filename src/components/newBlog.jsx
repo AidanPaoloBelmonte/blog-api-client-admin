@@ -73,8 +73,12 @@ export default function NewBlog() {
       withCredentials: true,
     });
 
-    if (response?.data?.id) {
-      navigate(`/blogs/${response.data.id}`, { viewTransition: true });
+    if (response?.data?.blog?.id) {
+      const navOpts = {
+        ViewTransition: true,
+        state: { ...response?.data?.blog },
+      };
+      navigate(`/blogs/${response.data.blog.id}`, navOpts);
     } else {
       setSubmitError(response?.data?.error);
     }
