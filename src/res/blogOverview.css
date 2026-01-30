@@ -22,6 +22,10 @@
 }
 
 .blogEntry {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
     padding: 8px;
     border: 2px solid var(--accent-color);
     border-radius: var(--base-border-radius);
@@ -31,6 +35,19 @@
 
         color: var(--base-color);
         text-align: left;
+    }
+
+    .blogDetails {
+        flex: 1 auto;
+    }
+
+    .buttons {
+        flex: 0 1 0;
+
+        display: flex;
+        gap: 8px;
+
+        margin-left: auto;
     }
 }
 
